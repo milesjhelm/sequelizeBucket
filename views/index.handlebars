@@ -1,0 +1,34 @@
+<h1>Bucket List</h1>
+
+<h2>To Do Before I Die</h2>
+<ul>
+	{{#each BucketNotDone}}
+		<li>
+			{{name}}
+			<form action="/{{id}}?_method=PUT"
+			method="POST">
+				<input type="hidden"
+				name="done" value={{id}}>
+			<button type="submit">Done!</button>
+			</form>
+		</li>
+	{{/each}}
+</ul>
+
+<h2>Yay, Done!</h2>
+<ul>
+	{{#each BucketDone}}
+		<li>
+			{{name}}
+		</li>
+	{{/each}}
+</ul>
+
+<h2>Add Something to Your List</h2>
+<form action="/" method="POST">
+	<div>
+		<label for="hobby">Something to do.</label>
+		<input type="text" name="hobby" id="hobby">
+	</div>
+	<button type="submit">Add to Your List</button>
+</form>
